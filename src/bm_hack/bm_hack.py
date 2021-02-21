@@ -56,7 +56,8 @@ def OpenSerial(fname="/dev/ttyUSB0"):
             WriteAndReadSerialPacket(ser, cmd)
             break
         except:
-            print "Attempting to talk to device, try %i - trying again..." % fail
+            print >> sys.stderr, "Attempting to talk to device, try %i - trying again..." 
+            #fail
             fail += 1
         if fail > 5:
             raise Exception("Failed to talk to device!")
